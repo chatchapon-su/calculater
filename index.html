@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculater</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="screen">
+                <div class="display">
+                    <p id="detail">calculater</p>
+                    <h1 id="data">calculater</h1>
+                </div>
+            </div>
+            <div class="numpad">
+                <div class="numrow">
+                    <button type="button" value="√" onclick="getnumber()">√</button>
+                    <button type="button" value="%" onclick="getnumber()">%</button>
+                    <button type="button" value="d" onclick="getnumber()">D</button>
+                    <button type="button" value="c" onclick="getnumber()">C</button>
+                </div>
+                <div class="numrow">
+                    <button type="button" value="7" onclick="getnumber()">7</button>
+                    <button type="button" value="8" onclick="getnumber()">8</button>
+                    <button type="button" value="9" onclick="getnumber()">9</button>
+                    <button type="button" value="/" onclick="getnumber()">/</button>
+                </div>
+                <div class="numrow">
+                    <button type="button" value="4" onclick="getnumber()">4</button>
+                    <button type="button" value="5" onclick="getnumber()">5</button>
+                    <button type="button" value="6" onclick="getnumber()">6</button>
+                    <button type="button" value="x" onclick="getnumber()">x</button>
+                </div>
+                <div class="numrow">
+                    <button type="button" value="1" onclick="getnumber()">1</button>
+                    <button type="button" value="2" onclick="getnumber()">2</button>
+                    <button type="button" value="3" onclick="getnumber()">3</button>
+                    <button type="button" value="-" onclick="getnumber()">-</button>
+                </div>
+                <div class="numrow">
+                    <button type="button" value="0" onclick="getnumber()">0</button>
+                    <button type="button" value="." onclick="getnumber()">.</button>
+                    <button type="button" value="=" onclick="getnumber()">=</button>
+                    <button type="button" value="+" onclick="getnumber()">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var x="",y="",c
+
+        var s=1;
+
+        function getnumber() {
+            i=event.target.value;
+
+            if(i=="c"){
+                s=1
+                x=""
+                y=""
+            }
+
+            if (s!=3){
+                if(i!="√"&&i!="%"&&i!="d"&&i!="c"&&i!="+"&&i!="-"&&i!="x"&&i!="/"&&i!="="){
+                    if(s==1){
+                        x=x+event.target.value;
+                        document.getElementById("data").innerHTML=x;
+                    }else if(s==2){
+                        y=y+event.target.value;
+                        document.getElementById("data").innerHTML=y;
+                    }
+                }
+                else if(i=="√"){
+                    document.getElementById("detail").innerHTML=i;
+                    let originalNumber = parseInt(x);
+                    let result = Math.sqrt(originalNumber);
+                    let primeFactors = [];
+
+                    for (let divisor = 2; divisor <= result; divisor++) {
+                        while (originalNumber % divisor === 0) {
+                            primeFactors.push(divisor);
+                            originalNumber /= divisor;
+                        }
+                    }
+
+                    // ตรวจสอบว่า originalNumber ไม่ได้ลงตัว (เหลือเป็นจำนวนเศษ)
+                    if (originalNumber > 1) {
+                        primeFactors.push(originalNumber);
+                    }
+
+                    document.getElementById("data").innerHTML = result;
+                    x = ""
+                    s=3
+                }
+                else if(i=="%"){
+                    document.getElementById("detail").innerHTML=i;
+                    s=2
+                    c=i
+                }
+                else if(i=="d"){
+                    document.getElementById("detail").innerHTML=i;
+                    if (x.length > 0) {
+                        x = x.slice(0, -1); // ลบตัวหลังสุด
+                        document.getElementById("data").innerHTML = x;
+                    }
+                }
+                else if(i=="c"){
+                    document.getElementById("detail").innerHTML=i;
+                    document.getElementById("data").innerHTML=" ";
+                    x=""
+                    y=""
+                    s=1
+                }
+                else if(i=="/"){
+                    document.getElementById("detail").innerHTML=i;
+                    s=2
+                    c=i
+                }
+                else if(i=="x"){
+                    document.getElementById("detail").innerHTML=i;
+                    s=2
+                    c=i
+                }
+                else if(i=="-"){
+                    document.getElementById("detail").innerHTML=i;
+                    s=2
+                    c=i
+                }
+                else if(i=="+"){
+                    document.getElementById("detail").innerHTML=i;
+                    s=2
+                    c=i
+                }
+                else if(i=="="){
+                    document.getElementById("detail").innerHTML=i;
+                    if(c=="%"){
+                        result=parseFloat(x)%parseFloat(y);
+                    }
+                    else if(c=="/"){
+                        result=parseFloat(x)/parseFloat(y);
+                    }
+                    else if(c=="x"){
+                        result=parseFloat(x)*parseFloat(y);
+                    }
+                    else if(c=="-"){
+                        result=parseFloat(x)-parseFloat(y);
+                    }
+                    else if(c=="+"){
+                        result=parseFloat(x)+parseFloat(y);
+                    }else{
+                        result=""
+                    }
+
+                    document.getElementById("data").innerHTML=result;
+                    x=""
+                    y=""
+                    s=3
+                }
+            }
+
+        }
+    </script>
+    
+</body>
+</html>
