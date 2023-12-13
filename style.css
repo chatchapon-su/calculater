@@ -1,0 +1,168 @@
+@media screen and (max-width: 610px) {
+    .container{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .box{
+        border: 2px solid #000;
+        border-radius: 10px;
+        width: 50%;
+    }
+    
+    .screen{
+        display: block;
+        padding: 5% 5%;
+    }
+    
+    .display{
+        border: 1px solid #000;
+        border-radius: 10px;
+        padding: 5%;
+    }
+    
+    .display p{
+        float: right;
+        font-size: 10px;
+    }
+
+    .display h1{
+        font-size: 25px;
+    }
+    
+    .numpad{
+        display: block;
+        margin-top: 5%;
+        text-align: center;
+    }
+    
+    .numrow{
+        margin: 5%;
+    }
+    
+    .numrow button{
+        border: none;
+        border-radius: 5%;
+        font-size: 20px;
+        padding: 5% 5%;
+        background-color: rgb(40, 206, 150);
+        color: white;
+    }
+    
+    .numrow button:hover{
+        background-color: rgb(198, 206, 40);
+    }
+    
+    .numrow button:active{
+        background-color: rgb(206, 159, 40);
+    }
+    
+}
+
+@media screen and (min-width: 610px) {
+    .container{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .box{
+        border: 2px solid #000;
+        border-radius: 10px;
+        width: 50%;
+    }
+    
+    .screen{
+        display: block;
+        padding: 5% 5%;
+    }
+    
+    .display{
+        border: 1px solid #000;
+        border-radius: 10px;
+        padding: 5%;
+    }
+    
+    .display p{
+        float: right;
+    }
+    
+    .numpad{
+        display: block;
+        margin-top: 5%;
+        text-align: center;
+    }
+    
+    .numrow{
+        margin: 5%;
+    }
+    
+    .numrow button{
+        border: none;
+        border-radius: 5%;
+        font-size: 20px;
+        padding: 5% 8%;
+        background-color: rgb(40, 206, 150);
+        color: white;
+    }
+    
+    .numrow button:hover{
+        background-color: rgb(198, 206, 40);
+    }
+    
+    .numrow button:active{
+        background-color: rgb(206, 159, 40);
+    }
+    
+}
+
+
+@media screen and (min-width: 850px) {
+    .container{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .box{
+        border: 2px solid #000;
+        border-radius: 10px;
+        width: 50%;
+    }
+    
+    .screen{
+        display: block;
+        padding: 2% 5%;
+    }
+    
+    .display{
+        border: 1px solid #000;
+        border-radius: 10px;
+        padding: 5%;
+    }
+    
+    .display p{
+        float: right;
+    }
+    
+    .numpad{
+        display: block;
+        text-align: center;
+    }
+    
+    .numrow button{
+        border: none;
+        border-radius: 5%;
+        font-size: 20px;
+        padding: 2% 8%;
+        background-color: rgb(40, 206, 150);
+        color: white;
+    }
+    
+    .numrow button:hover{
+        background-color: rgb(198, 206, 40);
+    }
+    
+    .numrow button:active{
+        background-color: rgb(206, 159, 40);
+    }
+    
+}
